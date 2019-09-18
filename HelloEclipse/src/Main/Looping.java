@@ -3,17 +3,15 @@ package Main;
 public class Looping {
 
 	
-	static void countrow (int pointA, int pointB) {
-		
-		int i;
-		
+	static void countRow (int pointA, int pointB) {
+				
 		
 		System.out.print(pointA);
 		
 		
 		if(pointA > pointB) {
-				
-			for (i=pointA-1; i>=pointB; i--) {
+			
+			for (int i=pointA-1; i>=pointB; i--) {
 			
 				System.out.print(" " + i);
 			
@@ -23,7 +21,7 @@ public class Looping {
 		
 		else {
 			
-			for (i=pointA+1; i<=pointB; i++) {
+			for (int i=pointA+1; i<=pointB; i++) {
 				
 				System.out.print(" " + i);
 			
@@ -34,18 +32,16 @@ public class Looping {
 	}
 	
 	
-	static void countwithoutone (int pointA, int pointB, int value) {
-		
-		int i;
-		
+	static void countWithoutOne (int pointA, int pointB, int value) {
 		
 		
 		if(pointA > pointB) {
 			
 			if(pointA!=value) System.out.print(pointA-- + " ");
 			if(pointA!=value) System.out.print(pointA-- + " ");
-				
-			for (i=pointA; i>=pointB; i--) {
+			
+			
+			for (int i=pointA; i>=pointB; i--) {
 			
 				if(i!=value) System.out.print(i + " ");
 			
@@ -58,7 +54,7 @@ public class Looping {
 			if(pointA!=value) System.out.print(pointA++ + " ");
 			if(pointA!=value) System.out.print(pointA++ + " ");
 			
-			for (i=pointA; i<=pointB; i++) {
+			for (int i=pointA; i<=pointB; i++) {
 				
 				if(i!=value) System.out.print(i + " ");
 			
@@ -69,9 +65,8 @@ public class Looping {
 	}
 	
 	
-	static void countinterval (int pointA, int pointB, int value) {
-		
-		int i;
+	static void countInterval (int pointA, int pointB, int value) {
+				
 		
 		value = Math.abs(value);
 		
@@ -80,8 +75,8 @@ public class Looping {
 		
 		
 		if(pointA > pointB) {
-				
-			for (i=pointA-value; i>=pointB; i=i-value) {
+			
+			for (int i=pointA-value; i>=pointB; i=i-value) {
 			
 				System.out.print(" " + i);
 			
@@ -91,8 +86,8 @@ public class Looping {
 		
 		else {
 			
-			for (i=pointA+value; i<=pointB; i=i+value) {
-				
+			for (int i=pointA+value; i<=pointB; i=i+value) {
+								
 				System.out.print(" " + i);
 			
 			}
@@ -102,20 +97,19 @@ public class Looping {
 	}
 	
 	
-	static void charrow(char charA, char charB) {
-		
-		int pointA = charA;
-		int pointB = charB;
-		
-		int i;
-						
-		
-		System.out.print((char)pointA);
+	static void charRow(char charA, char charB) {
 		
 		
+		System.out.print((char)charA);
+		
+		
+			int pointA = charA;
+			int pointB = charB;
+		
+			
 		if(pointA > pointB) {
 			
-			for (i=pointA-1; i>=pointB; i--) {
+			for (int i=pointA-1; i>=pointB; i--) {
 			
 				System.out.print(" " + (char)i);
 			
@@ -125,7 +119,7 @@ public class Looping {
 		
 		else {
 			
-			for (i=pointA+1; i<=pointB; i++) {
+			for (int i=pointA+1; i<=pointB; i++) {
 				
 				System.out.print(" " + (char)i);
 			
@@ -136,24 +130,23 @@ public class Looping {
 	}
 	
 	
-	static void countdiv (int pointA, int pointB, int value) {
-		
-		int i;
-		
+	static void countDiv (int pointA, int pointB, int value) {
+				
 		value = Math.abs(value);
-				
-		int j=pointA*value+1;
-		
+			
 		
 		if(pointA > pointB) {
 			
-			for (i=pointA; i>=j; i--) {
+			
+			int j=pointA*value+1;
+			
+			for (int i=pointA; i>=j; i--) {
 				
 				if(i%value==0) System.out.print(i);
 			
 			}
 				
-			for (i=j-1; i>=pointB; i--) {
+			for (int i=j-1; i>=pointB; i--) {
 			
 				if(i%value==0) System.out.print(" " + i);
 			
@@ -162,14 +155,17 @@ public class Looping {
 		}
 		
 		else {
+
+
+			int j=pointA*value+1;
 			
-			for (i=pointA; i<=j; i++) {
+			for (int i=pointA; i<=j; i++) {
 				
 				if(i%value==0) System.out.print(i);
 			
 			}
 				
-			for (i=j+1; i<=pointB; i++) {
+			for (int i=j+1; i<=pointB; i++) {
 				
 				if(i%value==0) System.out.print(" " + i);
 			
@@ -180,15 +176,13 @@ public class Looping {
 	}
 	
 	
-	static void arrayrow (int[] row) {
-		
-		int i;
+	static void arrayRow (int[] row) {
 		
 		
 		System.out.print(row[0]);
 		
 		
-		for (i=1; i < row.length; i++) {
+		for (int i=1; i < row.length; i++) {
 			
 			System.out.print(" " + row[i]);
 			
@@ -197,29 +191,25 @@ public class Looping {
 	}
 		
 	
-	static void asciipart(int pointA, int pointB, int stringlengtt) {
+	static void asciiPart(int pointA, int pointB, int stringlength) {
 		
-		int i;
-		int j;
-			
 		pointA = Math.abs(pointA);
 		pointB = Math.abs(pointB);
-		stringlengtt = Math.abs(stringlengtt);
+		stringlength = Math.abs(stringlength);
 		
-		if(stringlengtt==0) stringlengtt=1000;
+		if(stringlength==0) stringlength=1000;
 		
 		
-		for (i=pointA; i<=pointB;) {
-												
-			for (j=1; j<stringlengtt; j++) {
-							
-				System.out.print( "|" + (char)i);
-				
-				i++;
-								
-			}
+		for (int i=pointA; i<=pointB;) {
 			
-			System.out.println("|");						
+			for (int j=1; j<stringlength; j++) {
+				
+				System.out.print( "|" + (char)i++);
+				
+			}
+						
+			System.out.println("|");
+			
 		}
 		
 	}
