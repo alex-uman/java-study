@@ -34,34 +34,34 @@ public class MainWhileCaseMark {
 		
 		System.out.println();
 		System.out.println();		
-		System.out.println("***********************************************");
+		System.out.println("************************************************");
 		System.out.println("**** switch - eine englische Kleinbuchstabe ****");
-		System.out.println("***********************************************");
+		System.out.println("************************************************");
 		System.out.println();
 		
-		System.out.println("a - > " + Switching.charCheck('a'));
-		System.out.println("c - > " + Switching.charCheck('c'));
-		System.out.println("d - > " + Switching.charCheck('d'));
-		System.out.println("e - > " + Switching.charCheck('e'));
-		System.out.println("A - > " + Switching.charCheck('A'));
-		System.out.println("+ - > " + Switching.charCheck('+'));	
+		System.out.println(Switching.charCheck('a'));
+		System.out.println(Switching.charCheck('c'));
+		System.out.println(Switching.charCheck('d'));
+		System.out.println(Switching.charCheck('e'));
+		System.out.println(Switching.charCheck('A'));
+		System.out.println(Switching.charCheck('+'));	
 		
 		
 		System.out.println();
 		System.out.println();		
-		System.out.println("***********************************************");
+		System.out.println("******************************************");
 		System.out.println("**** switch - eine deutsche Buchstabe ****");
-		System.out.println("***********************************************");
+		System.out.println("******************************************");
 		System.out.println();
 		
-		System.out.println("a - > " + Switching.germanChar('a'));
-		System.out.println("c - > " + Switching.germanChar('c'));
-		System.out.println("E - > " + Switching.germanChar('E'));
-		System.out.println("F - > " + Switching.germanChar('F'));
-		System.out.println("ö - > " + Switching.germanChar('ö'));
-		System.out.println("Ä - > " + Switching.germanChar('Ä'));
-		System.out.println("ß - > " + Switching.germanChar('ß'));
-		System.out.println("+ - > " + Switching.germanChar('+'));	
+		System.out.println(Switching.germanChar('a'));
+		System.out.println(Switching.germanChar('c'));
+		System.out.println(Switching.germanChar('E'));
+		System.out.println(Switching.germanChar('F'));
+		System.out.println(Switching.germanChar('ö'));
+		System.out.println(Switching.germanChar('Ä'));
+		System.out.println(Switching.germanChar('ß'));
+		System.out.println(Switching.germanChar('+'));	
 		
 		
 		System.out.println();
