@@ -95,6 +95,18 @@ public class MainMethoden {
 		
 		Methoding.printRandom(1, 20, 20);
 
+
+		System.out.println();
+		System.out.println();
+		System.out.println("*****************");
+		System.out.println("*** Kalender ***");
+		System.out.println("*****************");
+		System.out.println();
+
+		Methoding.Kalender(2009);
+		
+		Methoding.Kalender(2012);
+		
 	}
 
 }

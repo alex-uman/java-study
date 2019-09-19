@@ -92,13 +92,9 @@ public class Methoding {
 
 		else {
 
-			int y;
+			for (int y = 0; y < hoehe; y++) {
 
-			for (y = 0; y < hoehe; y++) {
-
-				int x;
-
-				for (x = 0; x < breite; x++) {
+				for (int x = 0; x < breite; x++) {
 
 					System.out.print("*");
 
@@ -127,13 +123,9 @@ public class Methoding {
 
 		else {
 
-			int y;
+			for (int y = 1; y <= hoehe; y++) {
 
-			for (y = 1; y <= hoehe; y++) {
-
-				int x;
-
-				for (x = 1; x <= breite; x++) {
+				for (int x = 1; x <= breite; x++) {
 
 					if (y > 1 && y < hoehe && x > 1 && x < breite && !fuellen)
 
@@ -185,6 +177,64 @@ public class Methoding {
 
 		System.out.println();
 
+	}
+
+	static void Kalender(int jahr) {
+		jahr = Math.abs(jahr);
+
+		System.out.println("Kalender " + jahr);
+		System.out.println("--------------");
+		System.out.println();
+
+		for (int monat = 1; monat < 13; monat++) {
+
+			System.out.print("Monat " + monat + ":");
+
+			switch (monat) {
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+
+				for (int tag = 1; tag < 31; tag++)
+
+					System.out.print(" " + tag);
+
+				System.out.println();
+				System.out.println();
+
+				break;
+
+			case 2:
+
+				for (int tag = 1; tag < 29; tag++)
+
+					System.out.print(" " + tag);
+
+				if (jahr % 4 == 0)
+
+					System.out.print(" 29");
+
+				System.out.println();
+				System.out.println();
+
+				break;
+
+			default:
+
+				for (int tag = 1; tag < 32; tag++)
+
+					System.out.print(" " + tag);
+
+				System.out.println();
+				System.out.println();
+
+			}
+
+		}
+		
+		System.out.println();
+		
 	}
 
 }
