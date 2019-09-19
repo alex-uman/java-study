@@ -4,6 +4,17 @@ public class probe {
 
 	public static void main(String[] args) {
 		
+//		
+//		übrigens
+//
+//		if (x==1 && ++y==1)
+//
+//		tut was anderes mit y als
+//
+//		if (x=1 & ++y==1)
+//		
+		
+		
 //		m1:
 //			
 //		for(int i=0;i<10;i++) {
@@ -49,18 +60,24 @@ public class probe {
 //		else System.out.println("3.???");
 		
 		
-		switch (day) {
+//		switch (day) {
+//		
+//		case 1: 
+//		case 2: 
+//		case 3: 
+//		case 4: 
+//		case 5: System.out.println("3.A"); break;
+//		case 6: 
+//		case 7: System.out.println("3.W"); break;
+//		default: System.out.println("3.???");
+//			
+//		}
 		
-		case 1: 
-		case 2: 
-		case 3: 
-		case 4: 
-		case 5: System.out.println("3.A"); break;
-		case 6: 
-		case 7: System.out.println("3.W"); break;
-		default: System.out.println("3.???");
-			
-		}
+		
+		
+		long sum = (long)Integer.MAX_VALUE + 1;
+		if(sum==(int)sum) System.out.println("!!!");
+		else System.out.println("???");
 		
 		
 	}
