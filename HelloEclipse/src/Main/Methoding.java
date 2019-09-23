@@ -144,6 +144,13 @@ public class Methoding {
 
 	}
 
+	/**
+	 * Die Methode gibt ein Kalender vür eine Jahr aus, es wird dabei errechned, ob
+	 * es 29 Februar da gibt.
+	 * 
+	 * @param jahr
+	 */
+
 	static void printRandom(int n, int von, int bis) {
 
 		n = Math.abs(n);
@@ -165,7 +172,7 @@ public class Methoding {
 
 			for (int i = 0; i < n; i++) {
 
-				double rndm = Math.random() / Math.nextDown(1.0);
+				double rndm = Math.random(); // Math.nextDown(1.0);
 
 				System.out.print((int) (von * (1.0 - rndm) + bis * rndm) + " ");
 
@@ -232,8 +239,58 @@ public class Methoding {
 			}
 
 		}
-		
+
 		System.out.println();
+
+	}
+
+	static int getFakultaet(int fakValue) {
+
+		fakValue = Math.abs(fakValue);
+
+		long sumValue = 1;
+
+		for (int i = 0; i < fakValue;) {
+
+			sumValue *= ++i;
+
+		}
+
+		int intResult = (int) sumValue;
+
+		if (sumValue != intResult)
+
+			System.out.print(" -> unmöglich für ein Integer! - > ");
+
+		System.out.println(fakValue + "! = " + intResult);
+
+		return intResult;
+
+	}
+
+	static int getFakultaetRekursiv(int fakValue) {
+
+		if (fakValue < 1) {
+
+			System.out.println("0! = 1");
+
+		}
+
+		if (fakValue > 1) {
+
+			long sumValue = (long)fakValue * getFakultaetRekursiv(fakValue - 1);
+
+			int intResult = (int) sumValue;
+
+			if (sumValue != intResult)
+
+				System.out.print(" -> unmöglich für ein Integer! - > ");
+
+			return intResult;
+
+		}
+
+		return 1;
 		
 	}
 

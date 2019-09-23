@@ -107,6 +107,15 @@ public class MainMethoden {
 		
 		Methoding.Kalender(2012);
 		
+		
+		//System.out.println(Methoding.getFakultaet(13));
+		
+		System.out.println(Methoding.getFakultaetRekursiv(4));
+		
+		
+		
+		
+		
 	}
 
 }
