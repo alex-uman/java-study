@@ -15,7 +15,7 @@ class DayList {
 
 }
 
-public class FirstObjects {
+public class TagesPlan {
 
 	public static void main(String[] args) {
 
