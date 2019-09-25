@@ -12,65 +12,45 @@ public class Person {
 
 	Person(String vorname, String nachname, int geburtsjahr, int plz) {
 
-		if (vorname == null || vorname.isEmpty())
-			throw new IllegalArgumentException("Es mus ein Vorname existieren!");
-
-		if (nachname == null || nachname.isEmpty())
-			throw new IllegalArgumentException("Es mus ein Nachname existieren!");
-
-		if (geburtsjahr < 0)
-			throw new IllegalArgumentException("Das Geburtsjahr kann nicht negativ sein!");
+		this(vorname, nachname, geburtsjahr);
 
 		if (plz < 10000 || plz > 99999)
 			throw new IllegalArgumentException("PLZ soll 5-stellig sein!");
 
-		this.vorname = vorname;
-		this.nachname = nachname;
-		this.geburtsjahr = geburtsjahr;
 		this.plz = plz;
 
 	}
 
 	Person(String vorname, String nachname, int geburtsjahr) {
 
-		if (vorname == null || vorname.isEmpty())
-			throw new IllegalArgumentException("Es muss ein Vorname existieren!");
-
-		if (nachname == null || nachname.isEmpty())
-			throw new IllegalArgumentException("Es muss ein Nachname existieren!");
+		this(vorname, nachname);
 
 		if (geburtsjahr < 0)
 			throw new IllegalArgumentException("Das Geburtsjahr kann nicht negativ sein!");
 
-		this.vorname = vorname;
-		this.nachname = nachname;
 		this.geburtsjahr = geburtsjahr;
 
 	}
 
 	Person(String nachname, int geburtsjahr) {
 
-		if (nachname == null || nachname.isEmpty())
-			throw new IllegalArgumentException("Es muss ein Nachname existieren!");
+		this(nachname);
 
 		if (geburtsjahr < 0)
 			throw new IllegalArgumentException("Das Geburtsjahr kann nicht negativ sein!");
 
-		this.nachname = nachname;
 		this.geburtsjahr = geburtsjahr;
 
 	}
 
 	Person(String vorname, String nachname) {
 
+		this(nachname);
+
 		if (vorname == null || vorname.isEmpty())
 			throw new IllegalArgumentException("Es muss ein Vorname existieren!");
 
-		if (nachname == null || nachname.isEmpty())
-			throw new IllegalArgumentException("Es muss ein Nachname existieren!");
-
 		this.vorname = vorname;
-		this.nachname = nachname;
 
 	}
 
