@@ -13,7 +13,6 @@ public class ArrayAufgabe {
 
 		System.out.println();
 		System.out.println();
-		System.out.println();
 		System.out.println("#### A3");
 		System.out.println();
 
@@ -23,19 +22,12 @@ public class ArrayAufgabe {
 
 		System.out.println();
 		System.out.println();
-		System.out.println();
 		System.out.println("#### A4");
 		System.out.println();
 
 		char[] arrayA3 = deutscheBuchstaben();
 
 		printArray(arrayA3);
-
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("#### A5");
-		System.out.println();
 
 	}
 
@@ -65,6 +57,8 @@ public class ArrayAufgabe {
 
 			System.out.print(i + " ");
 
+		System.out.println();
+
 	}
 
 	static void printArray(char[] array) {
@@ -72,6 +66,8 @@ public class ArrayAufgabe {
 		for (char i : array)
 
 			System.out.print(i + " ");
+
+		System.out.println();
 
 	}
 
