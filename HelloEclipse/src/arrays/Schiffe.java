@@ -59,13 +59,9 @@ class Hafen {
 		return false;
 	}
 
-//	public boolean checkSlot(int number) {
+//	public boolean checkFreeSlot(int number) {
 //
-//		if (besetzt[number] == null)
-//
-//			return false;
-//
-//		return true;
+//		return (besetzt[number] == null);
 //
 //	}
 
