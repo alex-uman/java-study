@@ -11,7 +11,7 @@ class Hafen {
 
 	}
 
-	public int getFree() {
+	int getFree() {
 
 		for (int i = 0; i < 100; i++) {
 
@@ -25,7 +25,7 @@ class Hafen {
 
 	}
 
-	public boolean checkSchiff(Schiff schiff) {
+	boolean checkSchiff(Schiff schiff) {
 
 		for (int i = 0; i < 100; i++) {
 
@@ -42,7 +42,7 @@ class Hafen {
 		return false;
 	}
 
-	public boolean checkSchiff(String schiff) {
+	boolean checkSchiff(String schiff) {
 
 		for (int i = 0; i < 100; i++) {
 
@@ -59,13 +59,13 @@ class Hafen {
 		return false;
 	}
 
-//	public boolean checkFreeSlot(int number) {
+//	boolean checkFreeSlot(int number) {
 //
 //		return (besetzt[number] == null);
 //
 //	}
 
-	public void addSchiff(Schiff schiff) {
+	void addSchiff(Schiff schiff) {
 
 		if (checkSchiff(schiff)) {
 
@@ -98,7 +98,7 @@ class Hafen {
 
 	}
 
-	public void addSchiff(String schiff) {
+	void addSchiff(String schiff) {
 
 		if (checkSchiff(schiff)) {
 
@@ -130,7 +130,7 @@ class Hafen {
 
 	}
 
-	public void addSchiff() {
+	void addSchiff() {
 
 		for (int i = 0; i < 100; i++) {
 
@@ -153,7 +153,7 @@ class Hafen {
 
 	}
 
-	public void report() {
+	void report() {
 
 		int free = getFree();
 
@@ -202,7 +202,7 @@ class Schiff {
 
 	}
 
-	public void setName(String name) {
+	void setName(String name) {
 
 		this.name = name;
 
