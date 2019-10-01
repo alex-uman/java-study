@@ -74,17 +74,19 @@ class IntMatrix {
 
 	}
 
-	public boolean equals(Object obj) {
-
-		if (!(obj instanceof IntMatrix))
-
-			return false;
-
-		obj = (IntMatrix) obj;
-
-		return equals(obj);
-
-	}
+//	public boolean equals(Object obj) {
+//
+//		if (!(obj instanceof IntMatrix))
+//
+//			return false;
+//
+//		IntMatrix matrix;
+//				
+//		matrix = (IntMatrix) obj;
+//
+//		return equals(matrix);
+//
+//	}
 
 	String dimensions() {
 
@@ -93,7 +95,7 @@ class IntMatrix {
 
 	boolean equals(IntMatrix anotherMatrix) {
 
-		if (this.equals(anotherMatrix))
+		if (this==anotherMatrix)
 
 			return true;
 
