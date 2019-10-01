@@ -74,12 +74,28 @@ class IntMatrix {
 
 	}
 
+	public boolean equals(Object obj) {
+
+		if (!(obj instanceof IntMatrix))
+
+			return false;
+
+		obj = (IntMatrix) obj;
+
+		return equals(obj);
+
+	}
+
 	String dimensions() {
 
 		return this.matrix.length + "x" + this.matrix[0].length;
 	}
 
 	boolean equals(IntMatrix anotherMatrix) {
+
+		if (this.equals(anotherMatrix))
+
+			return true;
 
 		if (!this.dimensions().equals(anotherMatrix.dimensions()))
 
@@ -106,7 +122,7 @@ class IntMatrix {
 
 	void checkForOutOfBounds(int x, int y) {
 
-		if (this.matrix.length < --x || this.matrix[0].length < --y)
+		if (this.matrix.length < x || this.matrix[0].length < y)
 
 			throw new IllegalArgumentException("The target element exceeds the bounds of the matrix!");
 
@@ -114,17 +130,17 @@ class IntMatrix {
 
 	void set(int x, int y, int value) {
 
-		checkForOutOfBounds(x, y);
+		checkForOutOfBounds(--x, --y);
 
-		this.matrix[--x][--y] = value;
+		this.matrix[x][y] = value;
 
 	}
 
 	int get(int x, int y) {
 
-		checkForOutOfBounds(x, y);
+		checkForOutOfBounds(--x, --y);
 
-		return this.matrix[--x][--y];
+		return this.matrix[x][y];
 
 	}
 
@@ -228,7 +244,7 @@ public class Matrix {
 		System.out.println();
 
 		System.out.println();
-		System.out.println("Zwei zwei ungleiche Matrizen");
+		System.out.println("Zwei ungleiche Matrizen");
 		System.out.println();
 		System.out.println(m1);
 		System.out.println("und");
