@@ -53,10 +53,6 @@ class Pool {
 
 		fighters = new Fighter[count];
 
-//		for (int i = 0; i < this.fighters.length; i++)
-//
-//			this.fighters[i] = new Fighter("");
-
 		name = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
 
 	}
@@ -109,6 +105,12 @@ class Pool {
 
 	}
 
+	Fighter[] getFighterPool() {
+
+		return this.fighters;
+
+	}
+
 	public String toString() {
 
 		String poolValue = "Die Kämpferliste von " + name + "\n\n";
@@ -143,6 +145,26 @@ public class LetsFight {
 
 		Fighter[][] pairs = new Fighter[2][];
 
+		Fighter[] fighterPool = copyFighters(aPool.getFighterPool());
+
+		pairs = setPairs(fighterPool);
+
+		printPairs(pairs);
+
+		fighterPool = fightRound(pairs);
+
+		pairs = setPairs(fighterPool);
+
+		printPairs(pairs);
+
+		fighterPool = fightRound(pairs);
+
+		pairs = setPairs(fighterPool);
+
+		printPairs(pairs);
+
+		fighterPool = fightRound(pairs);
+
 	}
 
 	static Fighter[] copyFighters(Fighter[] oldFighters) {
@@ -169,43 +191,123 @@ public class LetsFight {
 
 		Fighter[] newFighters = new Fighter[count];
 
-		for (int i = 0; i < count; i++)
+		int j = 0;
 
-			newFighters[i] = oldFighters[i];
+		for (int i = 0; i < oldFighters.length; i++)
+
+			if (oldFighters[i] != null)
+
+				newFighters[j++] = oldFighters[i];
 
 		return newFighters;
 
 	}
 
-	static Fighter[][] setPairs(Fighter[] fighters) {
+	static Fighter[][] setPairs(Fighter[] actualFighters) {
 
-		int count = (int) (fighters.length / 2);
+		int pairCount = (int) (actualFighters.length / 2);
 
-		Fighter[] actualFighters = copyFighters(fighters);
+		int count = actualFighters.length;
 
-		Fighter[][] pairs = new Fighter[2][count];
+		Fighter[][] pairs = new Fighter[2][pairCount];
 
-		for (int j = 0; j < count; j++) {
+		for (int j = 0; j < pairCount; j++) {
 
 			for (int i = 0; i < 2; i++) {
 
-				int random = (int) (Math.random() * (count + 1));
+				int random = (int) (Math.random() * count);
 
 				pairs[i][j] = actualFighters[random];
 
 				actualFighters[random] = null;
-				
-				Fighter[] remainFighters = copyRemainFighters(actualFighters);
 
-				actualFighters = new Fighter[remainFighters.length];
+				actualFighters = copyRemainFighters(actualFighters);
 
-				actualFighters = copyFighters(remainFighters);
+				count--;
 
 			}
 
 		}
 
 		return pairs;
+
+	}
+
+	static void printPairs(Fighter[][] pairs) {
+
+		String pairsString = "Es sind die folgenden Kampfpaare ermittelt worden:" + "\n\n";
+
+		for (int j = 0; j < pairs[0].length; j++)
+
+			pairsString += (j + 1) + ". Paar: " + pairs[0][j].getName() + " vs " + pairs[1][j].getName() + '\n';
+
+		System.out.println(pairsString);
+
+	}
+
+	static Fighter[] fightRound(Fighter[][] pairs) {
+
+		for (int j = 0; j < pairs[0].length; j++)
+
+			fight(pairs, j);
+
+		Fighter[] remainFighters = new Fighter[pairs[0].length];
+
+		for (int j = 0; j < pairs[0].length; j++)
+
+			if (pairs[0][j] == null)
+
+				remainFighters[j] = pairs[1][j];
+
+			else
+
+				remainFighters[j] = pairs[0][j];
+
+		return remainFighters;
+
+	}
+
+	static void fight(Fighter[][] pair, int pairNumber) {
+
+		int random;
+
+		System.out.println(pair[0][pairNumber].getName() + " vs " + pair[1][pairNumber].getName() + "\n\nKampf!\n");
+
+		for (;;) {
+
+			random = (int) (Math.random() * 101);
+
+			if (random > pair[0][pairNumber].getCance())
+
+				System.out.println(pair[0][pairNumber].getName() + " schlägt, aber ohne Erfolg");
+
+			else {
+
+				System.out.println(pair[0][pairNumber].getName() + " gewinnt mit einem KO!\n");
+
+				pair[1][pairNumber] = null;
+
+				return;
+
+			}
+
+			random = (int) (Math.random() * 101);
+
+			if (random > pair[1][pairNumber].getCance())
+
+				System.out.println(pair[1][pairNumber].getName() + " schlägt, aber ohne Erfolg");
+
+			else {
+
+				System.out.println(pair[1][pairNumber].getName() + " gewinnt mit einem KO!\n");
+
+				pair[0][pairNumber] = null;
+
+				return;
+
+			}
+
+		}
 
 	}
 
