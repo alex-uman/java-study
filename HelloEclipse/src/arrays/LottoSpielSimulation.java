@@ -63,7 +63,9 @@ class LottoSpiel {
 			row = removeOneNull(row);
 		}
 
-		Arrays.sort(kugel, 0, 7);
+		if (LottoSpielSimulation.SORT)
+
+			Arrays.sort(kugel, 0, 7);
 
 	}
 
@@ -81,7 +83,8 @@ class LottoSpiel {
 
 	int vergleichen(LottoTipp tipp) {
 
-		if (anzahlKugelGesamt != tipp.getAnzahlKugelGesamt() || kugel.length != tipp.getKugeln().length) {
+		if (anzahlKugelGesamt != tipp.getAnzahlKugelGesamt() || kugel.length != tipp.getKugeln().length || kugel == null
+				|| tipp.getKugeln() == null) {
 
 			System.out.println("Dieser Tipp passt zu diesem Lotto nicht! ");
 
@@ -105,7 +108,12 @@ class LottoSpiel {
 
 	}
 
+	@Override
 	public String toString() {
+
+		if (kugel == null)
+
+			return "Spiel " + kugel.length + " aus " + anzahlKugelGesamt + ". Es gab noch keine Ziegung!";
 
 		String lottoSet = "";
 
@@ -301,7 +309,12 @@ class LottoTipp {
 
 	}
 
+	@Override
 	public String toString() {
+
+		if (kugel == null)
+
+			return "Spiel " + kugel.length + " aus " + anzahlKugelGesamt + ". Es gab noch keine Ziegung!";
 
 		String lottoSet = "";
 
@@ -315,6 +328,8 @@ class LottoTipp {
 }
 
 public class LottoSpielSimulation {
+
+	public static final boolean SORT = true;
 
 	public static void main(String[] args) {
 
