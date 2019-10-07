@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.Scanner;
 import java.util.Arrays;
 
 class LottoSpiel {
@@ -140,6 +141,136 @@ class LottoTipp {
 
 	}
 
+	void eingeben() {
+
+		System.out.println("Sie spielen Lotto " + kugel.length + " aus " + anzahlKugelGesamt
+				+ "\nBitte den Tipp eingeben (durch Leerzeichen getrennt):\n");
+
+		int[] kugel = new int[this.kugel.length];
+
+		boolean granted;
+
+		Scanner konsole, string;
+
+		String next;
+
+		for (;;) {
+
+			granted = true;
+
+			konsole = new Scanner(System.in);
+
+			string = new Scanner(konsole.nextLine());
+
+			if (granted) {
+
+				for (int i = 0; i < this.kugel.length; i++) {
+
+					if (string.hasNext()) {
+
+						next = string.next();
+
+						int number = checkForNatural(next);
+
+						if (number < 1 || number > anzahlKugelGesamt) {
+
+							System.out.println("Falsche Angabe! Versuchen Sie nochmals!");
+
+							granted = false;
+
+							break;
+
+						}
+
+						for (int j = 0; j < i; j++) {
+
+							if (kugel[j] == number) {
+
+								System.out.println("Die Zahlen dürfen sich nicht wiederholen! Versuchen Sie nochmals!");
+
+								granted = false;
+
+								break;
+
+							}
+
+						}
+
+						if (!granted)
+
+							break;
+
+						kugel[i] = number;
+
+					}
+
+					else {
+
+						granted = false;
+
+						System.out.println("Sie haben zu wenig Zahlen angegeben! Versuchen Sie nochmals!");
+
+						break;
+
+					}
+
+				}
+
+				if (granted) {
+
+					String check = "Sie haben angegeben:";
+
+					for (int i : kugel)
+
+						check += " " + i;
+
+					System.out.println(check + "\nist das richtig (j/n)?");
+
+					konsole = new Scanner(System.in);
+
+					if (konsole.nextLine().equals("j")) {
+
+						string.close();
+
+						konsole.close();
+
+						this.kugel = kugel;
+
+						return;
+
+					}
+
+					else
+
+						System.out.println("Ok versuchen Sie nochmals!");
+
+				}
+
+			}
+
+		}
+
+	}
+
+	int checkForNatural(String string) {
+
+		int number;
+
+		try {
+
+			number = Integer.parseInt(string);
+		}
+
+		catch (NumberFormatException e) {
+
+			return -1;
+
+		}
+
+		return number;
+
+	}
+
 	int getAnzahlKugelGesamt() {
 
 		return anzahlKugelGesamt;
@@ -149,6 +280,24 @@ class LottoTipp {
 	int[] getKugeln() {
 
 		return kugel;
+
+	}
+
+	long statistic(int count) {
+
+		int result = 0;
+
+		LottoSpiel lotto = new LottoSpiel(7, 49);
+
+		for (int i = 9; i < count; i++) {
+
+			lotto.ziehen();
+
+			result += lotto.vergleichen(this);
+
+		}
+
+		return result;
 
 	}
 
@@ -169,19 +318,32 @@ public class LottoSpielSimulation {
 
 	public static void main(String[] args) {
 
+		LottoTipp tipp = new LottoTipp(7, 49);
+
+//		tipp.abgeben();
+
+		tipp.eingeben();
+
+		System.out.println(tipp);
+
+		System.out.println();
+
 		LottoSpiel lotto = new LottoSpiel(7, 49);
 
 		lotto.ziehen();
 
 		System.out.println(lotto);
 
-		LottoTipp tipp = new LottoTipp(7, 49);
-
-		tipp.abgeben();
-
-		System.out.println(tipp);
+		System.out.println();
 
 		System.out.println("Gewinn: " + lotto.vergleichen(tipp));
+
+		System.out.println();
+
+		int count = 100000;
+
+		System.out.println("Diesen Tipp " + count + " mal durchlaufen zu lassen hat einen Gesamtgewinn "
+				+ tipp.statistic(count) + " gebracht");
 
 	}
 
