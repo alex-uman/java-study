@@ -36,13 +36,13 @@ abstract class Tier {
 
 	}
 
-	void setName(String name) {
+	public void setName(String name) {
 
 		this.name = name;
 
 	}
 
-	void setAlter(int alter) {
+	public void setAlter(int alter) {
 
 		if (alter < 0)
 
@@ -54,19 +54,19 @@ abstract class Tier {
 
 	}
 
-	void setGesund() {
+	public void setGesund() {
 
 		gesund = true;
 
 	}
 
-	void setUngesund() {
+	public void setUngesund() {
 
 		gesund = false;
 
 	}
 
-	void setGesundheit(boolean gesund) {
+	public void setGesundheit(boolean gesund) {
 
 		this.gesund = gesund;
 
@@ -78,28 +78,28 @@ abstract class Tier {
 
 	}
 
-	int getAlter() {
+	public int getAlter() {
 
 		return alter;
 
 	}
 
-	boolean getGesundheit() {
+	public boolean isGesundheit() {
 
 		return gesund;
 
 	}
 
-//	String getTyp() {
+//	public String getTyp() {
 //
 //		return getClass().getSimpleName();
 //	}
 
-	abstract String getTyp();
+	abstract public String getTyp();
 
-	abstract void laufen();
+	abstract public void laufen();
 
-	String checkLaeuft() {
+	public String isLaeuft() {
 
 		return this.toString() + " und laeuft" + (gesund ? "" : " nicht");
 
@@ -139,13 +139,13 @@ class Hund extends Tier {
 
 	}
 
-	String getTyp() {
+	public String getTyp() {
 
 		return "Der Hund";
 
 	}
 
-	void laufen() {
+	public void laufen() {
 
 		System.out.println(getTyp() + " " + getName() + " laeuft");
 
@@ -178,13 +178,13 @@ class Katze extends Tier {
 
 	}
 
-	String getTyp() {
+	public String getTyp() {
 
 		return "Die Katze";
 
 	}
 
-	void laufen() {
+	public void laufen() {
 
 		System.out.println(getTyp() + " " + getName() + " laeuft");
 
@@ -210,7 +210,7 @@ public class TierePolymorphie {
 
 	static void print(Tier tier) {
 
-		System.out.println(tier.checkLaeuft());
+		System.out.println(tier.isLaeuft());
 
 	}
 
