@@ -174,14 +174,14 @@ class FigurSet {
 
 			if ((int) (Math.random() * 2) == 0) {
 
-				set[i] = (Rechteck) set[i];
+//				set[i] = (Rechteck) set[i];
 				set[i] = new Rechteck((int) (1 + (Math.random() * RANGE)), (int) (1 + (Math.random() * RANGE)));
 
 			}
 
 			else {
 
-				set[i] = (Kreis) set[i];
+//				set[i] = (Kreis) set[i];
 				set[i] = new Kreis((int) (1 + (Math.random() * RANGE)));
 
 			}
@@ -245,7 +245,7 @@ public class Geometrie {
 
 			if (figur != null)
 
-				System.out.println(figur.getFigur() + ", Flaeche: " + figur.getFlaeche());
+				System.out.println(figur.getFigur() + "Flaeche: " + figur.getFlaeche());
 
 	}
 
