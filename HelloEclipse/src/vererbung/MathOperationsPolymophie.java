@@ -60,7 +60,7 @@ class Negate extends IntOperation {
 
 	int execute(int x) {
 
-		return 0 - x;
+		return -x;
 
 	}
 

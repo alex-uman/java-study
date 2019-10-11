@@ -54,25 +54,25 @@ abstract class Tier {
 
 	}
 
-	public void setGesund() {
+	public void setIstGesund() {
 
 		gesund = true;
 
 	}
 
-	public void setUngesund() {
+	public void setIstUngesund() {
 
 		gesund = false;
 
 	}
 
-	public void setGesundheit(boolean gesund) {
+	public void setGesund(boolean gesund) {
 
 		this.gesund = gesund;
 
 	}
 
-	String getName() {
+	public String getName() {
 
 		return name;
 
@@ -84,7 +84,7 @@ abstract class Tier {
 
 	}
 
-	public boolean isGesundheit() {
+	public boolean isGesund() {
 
 		return gesund;
 
@@ -107,8 +107,8 @@ abstract class Tier {
 
 	public String toString() {
 
-		return getTyp() + " " + name + (alter < 0 ? "" : " ist " + alter + " Jahre alt und") + " ist "
-				+ (gesund ? "" : "un") + "gesund";
+		return getTyp() + " " + name + (alter < 0 ? "" : " ist " + alter + " Jahre alt") + ", " + (gesund ? "" : "un")
+				+ "gesund";
 
 	}
 
@@ -200,7 +200,7 @@ public class TierePolymorphie {
 
 		Katze tom = new Katze("Tom");
 
-		tom.setUngesund();
+		tom.setIstUngesund();
 
 		print(rex);
 		System.out.println();
