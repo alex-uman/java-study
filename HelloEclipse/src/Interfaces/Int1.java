@@ -61,8 +61,10 @@ public class Int1 {
 
 		Kreis kA = new Kreis(4);
 		Kreis kB = new Kreis(77);
-
+ 
 		System.out.println(getMax(kA, kB));
+		
+		System.out.println(getMax(kA, sB));
 
 	}
 
