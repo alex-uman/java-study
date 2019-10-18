@@ -4,8 +4,8 @@ public class NameGenerator {
 
 	public static void main(String[] args) {
 
-		String[] silbenSet = { "ber", "mar", "man", "rich", "sau", "tra", "un", "be", "dich", "berg", "stimm", "stub",
-				"ger", "licht", "ner", "bert", "reb", "kopf", "tim", "er" };
+		final String[] silbenSet = { "ber", "mar", "man", "rich", "sau", "tra", "un", "be", "dich", "berg", "stimm",
+				"stub", "ger", "licht", "ner", "bert", "reb", "kopf", "tim", "er" };
 
 		String[] namenList = nameArray(silbenSet, 50);
 
