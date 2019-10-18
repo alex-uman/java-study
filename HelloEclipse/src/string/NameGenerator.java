@@ -29,14 +29,14 @@ public class NameGenerator {
 
 				int repeat = 0;
 
-				for (int j = 0; j < i - 1; j++)
+				for (int j = 0; j < i; j++)
 					if (name[j].equals(silbenSet[randomSilbe]))
 						repeat++;
 
 				if (repeat > 0) {
-					if ((Math.random() * 101) <= (25 / repeat)) {
+					if ((Math.random()) <= (0.25 / repeat)) {
 						if (name[i - 1].equals(silbenSet[randomSilbe])) {
-							if (Math.random() * 101 <= 2)
+							if (Math.random() <= 0.02)
 								name[i++] = silbenSet[randomSilbe];
 						}
 
@@ -93,7 +93,7 @@ public class NameGenerator {
 	static void printStringArray(String[] stringArray) {
 
 		if (stringArray[0] == null || stringArray.length == 0)
-			throw new IllegalArgumentException("Dre Parameter für printStringArray() ist falsch angegeben!");
+			throw new IllegalArgumentException("Der Parameter für printStringArray() ist falsch angegeben!");
 
 		for (String string : stringArray)
 
