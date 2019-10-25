@@ -1,6 +1,7 @@
 package arrays;
 
 import java.util.Scanner;
+
 import java.util.Arrays;
 
 class LottoSpiel {
@@ -65,7 +66,7 @@ class LottoSpiel {
 
 		if (LottoSpielSimulation.SORT)
 
-			Arrays.sort(kugel, 0, 7);
+			Arrays.sort(kugel);
 
 	}
 
@@ -227,6 +228,10 @@ class LottoTipp {
 				if (granted) {
 
 					String check = "Sie haben angegeben:";
+
+					if (LottoSpielSimulation.SORT)
+
+						Arrays.sort(kugel);
 
 					for (int i : kugel)
 

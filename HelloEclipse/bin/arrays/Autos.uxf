@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>80</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Fahrzeug
+--
+- hersteller: String
+- modell: String
+--
++ getModell(): String
++ toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>250</y>
+      <w>260</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>LKW
+--
+- last: int
+--
++ LKW(hersteller: String, modell: String)
++ getModell(): String
++ toString(): String
++ beladen(last: int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>250</y>
+      <w>260</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>PKW
+--
+
+--
++ PKW(hersteller: String, modell: String)
++ getModell(): String
++ toString(): String
++ automatischEinparken(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>180</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>180</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>70</x>
+      <y>170</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>IS-A</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>180</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>110.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>180</y>
+      <w>290</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>270.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

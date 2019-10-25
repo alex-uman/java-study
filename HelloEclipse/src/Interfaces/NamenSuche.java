@@ -34,7 +34,7 @@ class Person implements Comparable<Person> {
 		if (value != 0)
 			return value;
 
-		value = this.nachname.compareTo(person.nachname);
+		value = this.vorname.compareTo(person.vorname);
 
 		if (value != 0)
 			return value;
@@ -52,44 +52,107 @@ class Person implements Comparable<Person> {
 
 public class NamenSuche {
 
+	static class CompareBack implements Comparator<Person> {
+
+		@Override
+		public int compare(Person person1, Person person2) {
+			return person2.compareTo(person1);
+		}
+
+	}
+
 	public static void main(String[] args) {
 
-		Person[] list = { new Person("Paul", "Smith"), new Person("Paul", "Black"), new Person("John", "Smith"),
-				new Person("John", "Black"), new Person("Paul", "Black", 1982), new Person("John", "Smith", 2000),
-				new Person("John", "Smith", 1990) };
+		Person[] list = { new Person("Paul", "Smith"), new Person("Paul", "Black", 1982),
+				new Person("John", "Smith", 2000), new Person("John", "Smith", 1990), new Person("Paul", "Black"),
+				new Person("John", "Smith"), new Person("John", "Black") };
 
-		System.out.println(print("Personen, unsortiert:\n---------------------", list));
-
+		System.out.println();
+		print("Personen, unsortiert:\n---------------------", list);
 		System.out.println();
 
 		Arrays.sort(list);
 
-		System.out.println(print("Personen, sortiert:\n-------------------", list));
-
+		System.out.println();
+		print("Personen, sortiert:\n-------------------", list);
 		System.out.println();
 
+		System.out.println();
 		printFound(list, new Person("John", "Black"));
-
 		System.out.println();
 
-		Arrays.sort(list, Comparator.reverseOrder());
+		printFound(list, new Person("Johan", "Black"));
+		System.out.println();
 
-		System.out.println(print("Personen, rückwärts sortiert:\n-----------------------------", list));
+		printFound(list, new Person("", "Black"));
+		System.out.println();
 
+		printFound(list, new Person("John", "Blackes"));
+		System.out.println();
+
+		printFound(list, new Person("Paul", "Black"));
+		System.out.println();
+
+		printFound(list, new Person("Paul", "Black", 1982));
+		System.out.println();
+
+		printFound(list, new Person("Paul", "Black", 1983));
 		System.out.println();
 
 		printFound(list, new Person("John", "Smith"));
+		System.out.println();
+
+		Comparator<Person> reverce = new CompareBack();
+
+		Arrays.sort(list, reverce);
+
+//		Arrays.sort(list, Comparator.reverseOrder());
+
+		System.out.println();
+		print("Personen, rückwärts sortiert:\n-----------------------------", list);
+		System.out.println();
+
+		System.out.println();
+		printFound(list, new Person("John", "Black"), reverce);
+		System.out.println();
+
+		printFound(list, new Person("Johan", "Black"), reverce);
+		System.out.println();
+
+		printFound(list, new Person("", "Black"), reverce);
+		System.out.println();
+
+		printFound(list, new Person("John", "Blackes"), reverce);
+		System.out.println();
+
+		printFound(list, new Person("Paul", "Black"), reverce);
+		System.out.println();
+
+		printFound(list, new Person("Paul", "Black", 1982), reverce);
+		System.out.println();
+
+		printFound(list, new Person("Paul", "Black", 1983), reverce);
+		System.out.println();
+
+		printFound(list, new Person("John", "Smith"), reverce);
+
+	}
+
+	static void printFound(Person[] list, Person search, Comparator<Person> compare) {
+
+		System.out.println("Suche nach " + search + ": "
+				+ (compare != null ? (Arrays.binarySearch(list, search, compare) < 0 ? "nicht " : "")
+						: (Arrays.binarySearch(list, search) < 0 ? "nicht " : ""))
+				+ "gefunden");
 
 	}
 
 	static void printFound(Person[] list, Person search) {
 
-		System.out.println(
-				"Suche nach " + search + ": " + (Arrays.binarySearch(list, search) < 0 ? "nicht " : "") + "gefunden");
-
+		printFound(list, search, null);
 	}
 
-	static String print(String title, Person[] list) {
+	static void print(String title, Person[] list) {
 
 		String out = "";
 		if (title != null)
@@ -98,13 +161,13 @@ public class NamenSuche {
 		for (Person person : list)
 			out += '\n' + person.toString();
 
-		return out;
+		System.out.println(out);
 
 	}
 
-	static String print(Person[] list) {
+	static void print(Person[] list) {
 
-		return print(null, list);
+		print(null, list);
 
 	}
 }
