@@ -3,8 +3,8 @@ package list;
 class Rennwagen {
 
 	private String name;
-	private Motor motor = new Motor("Typ 1");
-	private Fahrer fahrer = null;
+	private Motor motor = new Motor();
+	private Fahrer fahrer;
 
 	Rennwagen(String name) {
 		this.name = name;
@@ -57,7 +57,7 @@ class Rennwagen {
 		}
 
 		Motor() {
-			this("Typ 1");
+			this("Type 1");
 		}
 
 		public void setName(String name) {
@@ -121,7 +121,8 @@ public class Rennautos {
 	public static void main(String[] args) {
 
 		Rennwagen rw = new Rennwagen("Mercedes");
-
+		System.out.println(rw);
+		
 		Rennwagen.Fahrer f = new Rennwagen.Fahrer("M.", "Schuhmacher");
 		rw.setFahrer(f);
 		System.out.println(rw);
@@ -129,7 +130,7 @@ public class Rennautos {
 		Rennwagen.Motor m = rw.getMotor();
 		System.out.println(m);
 
-		rw.setMotorName("Typ 2");
+		rw.setMotorName("Type 2");
 		m = rw.getMotor();
 		System.out.println(m);
 
