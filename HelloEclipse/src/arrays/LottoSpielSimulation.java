@@ -257,6 +257,8 @@ class LottoTipp {
 
 						System.out.println("Ok versuchen Sie nochmals!");
 
+					konsole.close();
+
 				}
 
 			}

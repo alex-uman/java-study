@@ -2,7 +2,7 @@ package arrays;
 
 public class ArraysEquals {
 
-	static int NUMBER_OF_TESTS = 500;
+	static int NUMBER_OF_TESTS = 100000;
 
 	public static void main(String[] args) {
 

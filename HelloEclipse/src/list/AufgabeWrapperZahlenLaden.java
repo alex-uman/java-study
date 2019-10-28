@@ -18,13 +18,12 @@ public class AufgabeWrapperZahlenLaden {
 		try (BufferedReader in = new BufferedReader(new FileReader(pathToFile))) {
 
 			String line;
+
 			while ((line = in.readLine()) != null) {
 
-				if ((line.substring(0, 1).matches("[0-9]+") || line.substring(0, 1).matches("-"))
-						&& line.substring(1).matches("[0-9]+")) {
+				if (line.matches("(-|\\d)+\\d"))
 					zahlen.add(Integer.parseInt(line));
 
-				}
 			}
 
 		} catch (IOException e) {

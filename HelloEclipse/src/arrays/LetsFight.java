@@ -3,9 +3,6 @@ package arrays;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import java.sql.Date;
-import java.util.Arrays;
-
 class Fighter {
 
 	private static int MIN_CHANCE = 5;
