@@ -158,7 +158,7 @@ public class AufgabeLambdas {
 		printAL(list3);
 
 //		
-//		Aufgabe A4
+//		Aufgabe A4    
 //
 
 		System.out.println();
