@@ -83,6 +83,10 @@ class Rennwagen {
 			this.nachname = nachname;
 		}
 
+		Fahrer(String nachname) {
+			this(null, nachname);
+		}
+
 		public void setVorname(String vorname) {
 			this.vorname = vorname;
 		}
@@ -122,7 +126,7 @@ public class Rennautos {
 
 		Rennwagen rw = new Rennwagen("Mercedes");
 		System.out.println(rw);
-		
+
 		Rennwagen.Fahrer f = new Rennwagen.Fahrer("M.", "Schuhmacher");
 		rw.setFahrer(f);
 		System.out.println(rw);
