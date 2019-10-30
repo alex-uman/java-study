@@ -20,12 +20,6 @@ public class AufgabeLambdas {
 		}
 	}
 
-	public interface CompString extends Comparator<String> {
-
-		public int compare(String s1, String s2);
-
-	}
-
 	public interface ListPair {
 		List<Integer> accept(List<Integer> list1, List<Integer> list2);
 	}
@@ -101,9 +95,7 @@ public class AufgabeLambdas {
 		System.out.println("List nach Stringlänge aufsteigend sortieren:");
 		System.out.println();
 
-		CompString cmp = (x, y) -> x.length() - y.length();
-
-		Collections.sort(strings, cmp);
+		Collections.sort(strings, (x, y) -> x.length() - y.length());
 
 		printAL(strings);
 
@@ -111,9 +103,7 @@ public class AufgabeLambdas {
 		System.out.println("List nach Stringlänge absteigend sortieren:");
 		System.out.println();
 
-		cmp = (x, y) -> y.length() - x.length();
-
-		Collections.sort(strings, cmp);
+		Collections.sort(strings, (x, y) -> y.length() - x.length());
 
 		printAL(strings);
 
@@ -148,9 +138,9 @@ public class AufgabeLambdas {
 		System.out.println();
 
 		ListPair combiner = (x, y) -> {
-			List<Integer> z = new ArrayList<>(list1);
-			x.addAll(list2);
-			return x;
+			List<Integer> z = new ArrayList<>(x);
+			z.addAll(y);
+			return z;
 		};
 
 		List<Integer> list3 = combiner.accept(list1, list2);
