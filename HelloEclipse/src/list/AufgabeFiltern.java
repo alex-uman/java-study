@@ -9,7 +9,7 @@ public class AufgabeFiltern {
 	static final Predicate<Integer> EVEN = i -> !(i % 2 == 0);
 	static final Predicate<Integer> POSITIVE = i -> (i < 0);
 	static final Predicate<Integer> NEGATIVE = i -> !(i < 0);
-	static final Predicate<Integer> FIRST_IS_ONE = i -> !(((Integer)Math.abs(i)).toString().charAt(0) == '1');
+	static final Predicate<Integer> FIRST_IS_ONE = i -> !(((Integer) Math.abs(i)).toString().charAt(0) == '1');
 
 	public static void main(String[] args) {
 
