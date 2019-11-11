@@ -14,4 +14,21 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>lib/jsoup-1.12.1-javadoc.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/jdk-11.0.4+11/lib/jsoup-1.12.1-javadoc.jar</locationURI>
+		</link>
+		<link>
+			<name>lib/jsoup-1.12.1-sources.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/jdk-11.0.4+11/lib/jsoup-1.12.1-sources.jar</locationURI>
+		</link>
+		<link>
+			<name>lib/jsoup-1.12.1.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/jdk-11.0.4+11/lib/jsoup-1.12.1.jar</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

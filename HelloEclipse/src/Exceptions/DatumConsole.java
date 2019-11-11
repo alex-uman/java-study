@@ -35,20 +35,14 @@ public class DatumConsole {
 
 	static String getUserInput() {
 
-		Scanner console = new Scanner(System.in);
-		Scanner line = new Scanner(console.nextLine());
+		String line = new Scanner(System.in).nextLine();
 
-		if (!line.hasNext()) {
+		if (line.isBlank()) {
 			System.out.println("Sie haben nix angegeben! Bitte nochmals versuchen!\n");
 			return getUserInput();
 		}
 
-		String string = line.next();
-
-//		console.close();
-		line.close();
-
-		return string;
+		return line;
 	}
 
 }

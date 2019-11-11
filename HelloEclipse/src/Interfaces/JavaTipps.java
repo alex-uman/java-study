@@ -10,7 +10,7 @@ class JavaTipp {
 	private ArrayList<String> themen = new ArrayList<>();
 
 	JavaTipp(String tipp, String thema1) {
-		this(tipp, thema1, "", "");
+		this(tipp, thema1, null, null);
 	}
 
 	JavaTipp(String tipp, String thema1, String thema2) {
@@ -40,11 +40,32 @@ class JavaTipp {
 	}
 
 	public String toString() {
-		return tipp;
+		return "\nTipp:\n" + tipp + "\nThemen:\n" + this.listThemen();
+	}
+
+	public boolean themaContains(String string) {
+
+		for (String i : this.getThemen())
+			if (i.contains(string))
+				return true;
+
+		return false;
+
+	}
+
+	private String listThemen() {
+
+		String themen = this.getThemen().get(0);
+
+		for (int i = 1; i < this.getThemen().size(); i++)
+			themen += ", " + this.getThemen().get(i);
+
+		return themen;
+
 	}
 
 	private void addThema(String thema) {
-		if (!thema.isBlank())
+		if (thema != null && !thema.isBlank() && !this.getThemen().contains(thema))
 			this.getThemen().add(thema);
 	}
 
@@ -178,7 +199,7 @@ public class JavaTipps {
 		System.out.println("Keine 'Klasse' niergenwo");
 		System.out.println("------------------------");
 
-		Predicate<JavaTipp> keineKlasse = i -> !i.getTipp().contains("Klasse") && !i.getThemen().contains("Klasse");
+		Predicate<JavaTipp> keineKlasse = i -> !i.getTipp().contains("Klasse") && !i.themaContains("Klasse");
 		param = keineKlasse;
 		search(tipps, param);
 		System.out.println();
@@ -202,7 +223,7 @@ public class JavaTipps {
 
 	static void printList(List list) {
 
-		list.forEach(i -> System.out.println("\n" + i));
+		list.forEach(i -> System.out.println(i));
 	}
 
 }
